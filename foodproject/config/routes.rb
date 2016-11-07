@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  devise_for :users
+  resources :businesses
+  root 'businesses#index'
+devise_scope :user do
+   get "signup", to: "devise/registrations#new"
+   get "", to: "devise/sessions#new"
+   get "logout", to: "devise/sessions#destroy"
+end
 end

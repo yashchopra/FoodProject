@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fooditem: MyString
+  foodtype: MyString
+  expiration: 2016-11-05
+  pickupstart: 2016-11-05 19:32:08
+  pickupend: 2016-11-05 19:32:08
+  specialnote: MyText
+
+two:
+  fooditem: MyString
+  foodtype: MyString
+  expiration: 2016-11-05
+  pickupstart: 2016-11-05 19:32:08
+  pickupend: 2016-11-05 19:32:08
+  specialnote: MyText
