@@ -1,6 +1,6 @@
-class CreateBusinesses < ActiveRecord::Migration[5.0]
+class CreateFoods < ActiveRecord::Migration[5.0]
   def change
-    create_table :businesses do |t|
+    create_table :foods do |t|
       t.string :fooditem
       t.string :foodtype
       t.date :expiration

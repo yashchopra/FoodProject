@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106223323) do
+ActiveRecord::Schema.define(version: 20161113020116) do
 
-  create_table "businesses", force: :cascade do |t|
+  create_table "foods", force: :cascade do |t|
     t.string   "fooditem"
     t.string   "foodtype"
     t.date     "expiration"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20161106223323) do
     t.text     "specialnote"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|

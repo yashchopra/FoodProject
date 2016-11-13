@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.background {
+	background-image: image-url('blue.jpg');
+}
+
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.move_left{
+	float: left;
+    color: white;
+}
+
+.move_right{
+	float: right;
+    text-color: white;
+}
+
+.link-color:link {
+  color: #333333;
+}
+.link-color:visited {
+  color: #FFFFFF;
+}
+.link-color:hover {
+  color: #CCCCCC;
+}
+.link-color:active {
+  color: #333333;
+}

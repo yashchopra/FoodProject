@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 <html>
+
+<!-- <nav>
+  <%= button_to 'Home', '#', :method => "get", :class => "nav_button" %>
+  <%= button_to 'Log out', '#', :method => "get", :class => "nav_button" %>
+</nav> -->
+
+<nav class = "navigation">
+  <left_options class = 'move_left'>
+    <%= link_to 'Home', '',  :class => 'link-color' %>
+    <%= link_to 'About', '', :class => 'link-color'%>
+  </left_options>
+
+  <right_option class = 'move_right'>
+    <%= link_to 'Log out', logout_path, :class => 'link-color' %>
+  </right_option>
+</nav>
+
+
   <head>
     <title>Foodproject</title>
     <%= csrf_meta_tags %>
@@ -8,9 +26,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-  	  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+  <body class = "background">
+	  <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
