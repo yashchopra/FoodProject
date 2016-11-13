@@ -3,15 +3,15 @@
 one:
   fooditem: MyString
   foodtype: MyString
-  expiration: 2016-11-05
-  pickupstart: 2016-11-05 19:32:08
-  pickupend: 2016-11-05 19:32:08
+  expiration: 2016-11-12
+  pickupstart: 2016-11-12 18:06:59
+  pickupend: 2016-11-12 18:06:59
   specialnote: MyText
 
 two:
   fooditem: MyString
   foodtype: MyString
-  expiration: 2016-11-05
-  pickupstart: 2016-11-05 19:32:08
-  pickupend: 2016-11-05 19:32:08
+  expiration: 2016-11-12
+  pickupstart: 2016-11-12 18:06:59
+  pickupend: 2016-11-12 18:06:59
   specialnote: MyText

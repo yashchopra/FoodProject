@@ -1,0 +1,28 @@
+sub directory
+rails generate model Post title:string body:text
+
+:string
+:text
+:integer
+:boolean
+:date
+:time
+:datetime
+:timestamp
+:decimal
+:float
+:primary_key
+
+rake db migrate (add the tables and column)
+
+scheba.rb(database)
+
+model -> controller -> view
+
+rails generate controller Posts index
+posts/index (route)
+wont create the route or view without index
+
+controller (u have view name here)
+routes.rb
+
