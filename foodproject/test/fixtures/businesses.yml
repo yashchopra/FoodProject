@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  orgType: MyString
+  name: MyString
+  type: 
+  addLine1: MyString
+  addLine2: MyString
+  addCity: MyString
+  addState: MyString
+  addZip: 1
+  phone: 1
+  website: MyString
+  email1: MyString
+  email2: MyString
+
+two:
+  orgType: MyString
+  name: MyString
+  type: 
+  addLine1: MyString
+  addLine2: MyString
+  addCity: MyString
+  addState: MyString
+  addZip: 1
+  phone: 1
+  website: MyString
+  email1: MyString
+  email2: MyString
