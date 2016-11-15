@@ -2,6 +2,7 @@
 
 <h1>Businesses</h1>
 
+
 <table>
   <thead>
     <tr>
@@ -23,6 +24,7 @@
 
   <tbody>
     <% @businesses.each do |business| %>
+    <%if current_user.id == business.user_id %>
       <tr>
         <td><%= business.orgType %></td>
         <td><%= business.name %></td>
@@ -41,9 +43,17 @@
         <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <%if current_user.id != business.user_id %>
+    <%= link_to 'New Business', new_business_path %>
+    <% end %>
+    <% end %>
+
+    <% if @businesses.all.empty? %>
+    <%= link_to 'New Business', new_business_path %>
+    <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Business', new_business_path %>
+
