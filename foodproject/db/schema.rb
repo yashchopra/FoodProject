@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113030306) do
+ActiveRecord::Schema.define(version: 20161113194617) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "orgType"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20161113030306) do
     t.string   "email2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "foods", force: :cascade do |t|
@@ -38,6 +39,8 @@ ActiveRecord::Schema.define(version: 20161113030306) do
     t.text     "specialnote"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "business_id"
   end
 
   create_table "users", force: :cascade do |t|
