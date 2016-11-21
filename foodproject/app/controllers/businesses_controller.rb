@@ -73,6 +73,6 @@ class BusinessesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:orgType, :name, :type, :addLine1, :addLine2, :addCity, :addState, :addZip, :phone, :website, :email1, :email2, :user_id)
+      params.require(:business).permit(:orgType, :name, :business_type, :addLine1, :addLine2, :addCity, :addState, :addZip, :phone, :website, :email1, :email2, :user_id)
     end
 end

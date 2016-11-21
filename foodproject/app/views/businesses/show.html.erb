@@ -1,64 +1,67 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <strong>Orgtype:</strong>
-  <%= @business.orgType %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @business.name %>
-</p>
+<table class = "table">
+  <thead>
+  <tr>
+    <!-- <th colspan="2"> <center><strong> <%= @business.name %></strong> </center> </th> -->
+    <th colspan="2"> <center> <%= @business.name %></center> </th>
 
-<p>
-  <strong>Type:</strong>
-  <%= @business.type %>
-</p>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>  <strong>Address:</strong> <%= @business.addLine1 %> 
+              <%= @business.addLine2 %> </td>
+         <td> <strong>Email1:</strong> <%= @business.email1 %> </td>
+    </tr>
+    
+    <tr>
+      <td>  <strong>City:</strong> <%= @business.addCity %>
+            <strong>State:</strong> <%= @business.addState %>
+            <strong>Zip Code:</strong> <%= @business.addZip %></td>
+       <td>  <strong>Email2:</strong> <%= @business.email2 %> </td>
+    </tr>
+    <tr>
+      <td>  <strong>Phone:</strong> <%= @business.phone %></td>
+      <td>  <strong>Website:</strong> <%= @business.website %> </td>
+    </tr>
+  </tbody>
+</table>
 
-<p>
-  <strong>Addline1:</strong>
-  <%= @business.addLine1 %>
-</p>
-
-<p>
-  <strong>Addline2:</strong>
-  <%= @business.addLine2 %>
-</p>
-
-<p>
-  <strong>Addcity:</strong>
-  <%= @business.addCity %>
-</p>
-
-<p>
-  <strong>Addstate:</strong>
-  <%= @business.addState %>
-</p>
-
-<p>
-  <strong>Addzip:</strong>
-  <%= @business.addZip %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @business.phone %>
-</p>
-
-<p>
-  <strong>Website:</strong>
-  <%= @business.website %>
-</p>
-
-<p>
-  <strong>Email1:</strong>
-  <%= @business.email1 %>
-</p>
-
-<p>
-  <strong>Email2:</strong>
-  <%= @business.email2 %>
-</p>
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
 <%= link_to 'New Food', new_business_food_path(@business) %>
+
+
+<center><h1>Food History</h1></center>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Fooditem</th>
+      <th>Foodtype</th>
+      <th>Expiration</th>
+      <th>Pickupstart</th>
+      <th>Pickupend</th>
+      <th>Specialnote</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business.foods.each do |food| %>
+      <tr>
+        <td><%= food.fooditem %></td>
+        <td><%= food.foodtype %></td>
+        <td><%= food.expiration %></td>
+        <td><%= food.pickupstart %></td>
+        <td><%= food.pickupend %></td>
+        <td><%= food.specialnote %></td>
+        <td><%= link_to 'Show', business_food_path(@business,food) %></td>
+        <td><%= link_to 'Edit', edit_business_food_path(@business,food) %></td>
+        <td><%= link_to 'Destroy', business_food_path(@business,food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 

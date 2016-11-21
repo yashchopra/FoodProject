@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113194617) do
+ActiveRecord::Schema.define(version: 20161120235935) do
 
   create_table "businesses", force: :cascade do |t|
     t.string   "orgType"
     t.string   "name"
-    t.string   "type"
     t.string   "addLine1"
     t.string   "addLine2"
     t.string   "addCity"
@@ -25,9 +24,10 @@ ActiveRecord::Schema.define(version: 20161113194617) do
     t.string   "website"
     t.string   "email1"
     t.string   "email2"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.string   "business_type"
   end
 
   create_table "foods", force: :cascade do |t|
