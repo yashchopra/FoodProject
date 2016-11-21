@@ -2,7 +2,7 @@
 
 <h1>Foods</h1>
 
-<table>
+<table class = "table">
   <thead>
     <tr>
       <th>Fooditem</th>
@@ -24,9 +24,9 @@
         <td><%= food.pickupstart %></td>
         <td><%= food.pickupend %></td>
         <td><%= food.specialnote %></td>
-        <td><%= link_to 'Show', food %></td>
-        <td><%= link_to 'Edit', edit_business_food_path(food) %></td>
-        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', business_food_path(@business,food) %></td>
+        <td><%= link_to 'Edit', edit_business_food_path(@business,food) %></td>
+        <td><%= link_to 'Destroy', business_food_path(@business,food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Food', new_food_path %>
+<%= link_to 'New Food', new_business_food_path(@business) %>

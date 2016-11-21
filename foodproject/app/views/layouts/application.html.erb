@@ -2,7 +2,7 @@
 <html>
 <nav class = "navigation">
   <left_options class = 'move_left'>
-    <%= link_to 'Home', '',  :class => 'link-color' %>
+    <%= link_to 'Home', businesses_path,  :class => 'link-color' %>
 
     <%= link_to 'About', '', :class => 'link-color'%>
   </left_options>
@@ -22,8 +22,10 @@
   </head>
 
   <body class = "background">
+  <div class="container">
 	  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+   </div> 
   </body>
 </html>

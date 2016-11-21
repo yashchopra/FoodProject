@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   end
   # resources :foods
   devise_for :users
+
   root 'businesses#index'
+  
 devise_scope :user do
    get "signup", to: "devise/registrations#new"
    get "sign_in", to: "devise/sessions#new"
