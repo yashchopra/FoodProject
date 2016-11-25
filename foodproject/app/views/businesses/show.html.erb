@@ -28,9 +28,8 @@
   </tbody>
 </table>
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
-<%= link_to 'New Food', new_business_food_path(@business) %>
+<%= link_to 'Edit Business Info', edit_business_path(@business), :class=> "button_small"    %>
+<%= link_to 'New Food', new_business_food_path(@business) , :class=> "button"  %>
 
 
 <center><h1>Food History</h1></center>
