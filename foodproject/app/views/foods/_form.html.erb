@@ -11,37 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :fooditem %>
-    <%= f.text_field :fooditem %>
-  </div>
 
-  <div class="field">
-    <%= f.label :foodtype %>
-    <%= f.text_field :foodtype %>
-  </div>
 
-  <div class="field">
-    <%= f.label :expiration %>
-    <%= f.date_select :expiration %>
-  </div>
 
-  <div class="field">
-    <%= f.label :pickupstart %>
-    <%= f.datetime_select :pickupstart %>
-  </div>
 
-  <div class="field">
-    <%= f.label :pickupend %>
-    <%= f.datetime_select :pickupend %>
-  </div>
+<table class = "table">
+  <tbody>
 
-  <div class="field">
-    <%= f.label :specialnote %>
-    <%= f.text_area :specialnote %>
-  </div>
+  <tr>
+        <td>  <%= f.label :fooditem %> <%= f.text_field :fooditem %> </td>
+         <td> <%= f.label :foodtype %> <%= f.text_field :foodtype %> </td>
+    </tr>
+    
+    <tr>
+    <tr>
+        <td colspan="2">  <%= f.label :expiration %> <%= f.date_select :expiration %> </td>
+    </tr>
+    
+    <tr>
+      <td>  <%= f.label :pickupstart %> <%= f.datetime_select :pickupstart %> </td>
+       <td> <%= f.label :pickupend %> <%= f.datetime_select :pickupend %> </td>
+    </tr>
+    <tr>
+      <td colspan="2">  <%= f.label :specialnote %> <%= f.text_area :specialnote %> </td>
+    </tr>
+  </tbody>
+</table>
+
+
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update Info', :class => 'button' %>
   </div>
 <% end %>
