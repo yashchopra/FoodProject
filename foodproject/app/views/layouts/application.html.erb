@@ -16,6 +16,9 @@
 
 
 
+<% if controller_name == "foods" or controller_name == "businesses" %>
+<% unless action_name == "foods#new" %>
+
   <nav class="navbar navbar-custom" role="navigation">
 
   <ul class="nav navbar-nav">
@@ -25,9 +28,6 @@
     <li class="nav-item active">
       <a class="nav-link" href="#">Link</a>
     </li>
-
- 
-
 
       <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
         <ul class="dropdown-menu">
@@ -50,7 +50,8 @@
 </nav>
 
 
-
+<% end %>
+<% end %>
 
 
   <head>

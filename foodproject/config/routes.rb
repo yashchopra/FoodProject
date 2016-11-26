@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # resources :foods
   devise_for :users
 
-  root 'businesses#index'
+  # @try = current_user.id
+  root 'businesses#home'
   
 devise_scope :user do
    get "signup", to: "devise/registrations#new"
