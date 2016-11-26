@@ -4,6 +4,18 @@ class BusinessesController < ApplicationController
 
   # GET /businesses
   # GET /businesses.json
+
+  def home
+    @businesses = Business.all
+    @businesses.each do |business|
+      if business.user_id == current_user.id
+        redirect_to business_path(business)
+      else
+        redirect_to new_business_path
+      end
+    end
+  end
+
   def index
     @businesses = Business.all
   end

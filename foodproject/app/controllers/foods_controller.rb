@@ -7,6 +7,7 @@ class FoodsController < ApplicationController
   def index
     @business = Business.find params[:business_id]
     @foods = Food.all
+    @foods = Food.new
   end
 
   # GET /foods/1
