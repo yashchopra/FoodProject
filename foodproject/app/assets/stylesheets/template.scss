@@ -25,7 +25,6 @@ body, p { margin:0; padding:0}
 
 th {
   background-color:rgba(3, 3, 1, 0.2);
-  color: white;
   text-align: center;
   /*font-size: 25px;*/
 }
@@ -119,15 +118,25 @@ body .modal{
     text-color: white;
 }
 
-.link-color:link {
-  color: #333333;
+
+/*a:link {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:visited {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:hover {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:active {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}*/
+
+
+#yash a:hover {
+  background-color: rgba(3, 3, 1, 0.2);
 }
-.link-color:visited {
-  color: #FFFFFF;
-}
-.link-color:hover {
-  color: #CCCCCC;
-}
-.link-color:active {
-  color: #333333;
-}
+
+/*a:hover + div {
+    display: block;
+}​*/
