@@ -3,11 +3,13 @@
 
 
 .background {
-    background: -webkit-linear-gradient(top, #5d4660, #f7eec7);
-
+    /*background: -webkit-linear-gradient(top, #5d4660, #f7eec7);*/
+    background: -webkit-linear-gradient(top, #FFE4E1, #f8f8ff);
 }
 
-html, body{height:100%;} 
+html, body{
+  height:100%;
+} 
 #outer{
 min-height:100%;
 }

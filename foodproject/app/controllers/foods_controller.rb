@@ -35,10 +35,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     @business = Business.find params[:business_id]
-    puts "Business Object"
-    puts @business.inspect
     @food.business = @business
-
     respond_to do |format|
       if @food.save
         format.html { redirect_to [@business], notice: 'Food was successfully created.' }
