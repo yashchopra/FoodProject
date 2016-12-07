@@ -32,7 +32,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
+
 gem 'devise', '~> 4'
+gem 'bootstrap_form'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

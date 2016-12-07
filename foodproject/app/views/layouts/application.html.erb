@@ -1,20 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--
-<nav class = "navigation">
-  <left_options class = 'move_left'>
-    <%= link_to 'Home', businesses_path,  :class => 'link-color' %>
-
-    <%= link_to 'About', '', :class => 'link-color'%>
-  </left_options>
-
-  <right_option class = 'move_right'>
-    <%= link_to 'Log out', logout_path, :class => 'link-color' %>
-  </right_option>
-</nav>
--->
-
-
 
 <% if controller_name == "foods" or controller_name == "businesses" %>
 <% unless action_name == "foods#new" %>
@@ -53,7 +38,7 @@
 <% end %>
 <% end %>
 
-
+<body class = "background">
   <head>
     <title>Foodproject</title>
     <%= csrf_meta_tags %>
@@ -62,7 +47,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class = "background">
+  
   <div class="container">
 	  <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
