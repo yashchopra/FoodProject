@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Foods</h1>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Fooditem</th>
+      <th>Foodtype</th>
+      <th>Expiration</th>
+      <th>Pickupstart</th>
+      <th>Pickupend</th>
+      <th>Specialnote</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.fooditem %></td>
+        <td><%= food.foodtype %></td>
+        <td><%= food.expiration %></td>
+        <td><%= food.pickupstart %></td>
+        <td><%= food.pickupend %></td>
+        <td><%= food.specialnote %></td>
+        <td><%= link_to 'Show', business_food_path(@business,food) %></td>
+        <td><%= link_to 'Edit', edit_business_food_path(@business,food) %></td>
+        <td><%= link_to 'Destroy', business_food_path(@business,food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Food', new_business_food_path(@business) %>

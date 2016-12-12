@@ -1,0 +1,71 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+<table class = "table">
+<% bus = Business.all %>
+<% bus.each do |business| %>
+
+<%if @food.user_id == business.user_id %>
+
+
+  <thead>
+  <tr>
+    <th colspan="4"> <center> <%= business.name %></center> </th>
+    <th> <%= business.orgType %> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td colspan="3">  <strong>Address:</strong> <%= business.addLine1 %> 
+              <%= business.addLine2 %> 
+              <%= business.addCity %>
+              <%= business.addState %>
+              <%= business.addZip %>
+              </td>
+          <td>  <strong>Phone:</strong> <%= business.phone %></td>
+         
+    </tr>
+
+    <tr>
+      <td>  <strong>Website:</strong> <%= business.website %> </td>
+      <td> <strong>Email1:</strong> <%= business.email1 %> </td>
+      <td>  <strong>Email2:</strong> <%= business.email2 %> </td>
+    </tr>
+  </tbody>
+  <% end %>
+<% end %>
+</table>
+
+
+<table class = "table">
+  <thead>
+  <tr>
+    <th colspan="2"> <center> Food Informtion </center> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+        <td>  <strong> Food Item </strong> <%= @food.fooditem %> </td>
+         <td> <strong> Type of Food </strong> <%= @food.foodtype %> </td>
+    </tr>
+    
+    <tr>
+    <tr>
+        <td>  <strong> Food Expiration Date </strong> <%= @food.expiration %> </td>
+        <td>  <strong> Food Quantity </strong> <%= @food.quantity %> </td>
+    </tr>
+    
+    <tr>
+      <td>  <strong> Pick-Up Start Date/Time </strong> <%= @food.pickupstart %> </td>
+       <td> <strong> Pick-Up End Date/Time </strong> <%= @food.pickupend %> </td>
+    </tr>
+    <tr>
+      <td colspan="2"> <strong> Note </strong> <%= @food.specialnote %> </td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Back', business_path(@business) %>

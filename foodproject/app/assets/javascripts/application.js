@@ -13,4 +13,52 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+//= require moment
+//= require bootstrap-datepicker
+//= require bootstrap-datetimepicker
+
+
+$(function() {
+  $(document).on('change', '.business_type', function() {
+  	var val = $('.business_type').val();
+
+    if (val == "Business")
+    {     
+    	$('.table_body').show()
+    	$('.charity_display').hide();
+		$('.business_display').show();	
+    }
+    else if (val == "Food Distribution Center") 
+    {
+    	$('.table_body').show()
+    	$('.charity_display').show();
+		$('.business_display').hide();
+	} else
+	$('.table_body').hide()
+  });
+});
+
+
+$(function() {
+  $(document).ready(function() {
+  	var val = $('.business_type').val();
+    if (val == "Business")
+    {     
+    	$('.table_body').show()
+    	$('.charity_display').hide();
+		$('.business_display').show();	
+    }
+    else if (val == "Food Distribution Center") 
+    {
+    	$('.table_body').show()
+    	$('.charity_display').show();
+		$('.business_display').hide();
+	} else
+	$('.table_body').hide()
+  });
+});
+
+
+

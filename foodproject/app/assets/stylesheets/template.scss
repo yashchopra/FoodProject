@@ -1,0 +1,175 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.background {
+    /*background: -webkit-linear-gradient(top, #5d4660, #f7eec7);*/
+    background: -webkit-linear-gradient(top, #FFE4E1, #f8f8ff);
+}
+
+html, body{
+  height:100%;
+} 
+#outer{
+min-height:100%;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+* html #outer{height:100%;} /* for IE 6, if you care */
+
+body, p { margin:0; padding:0}
+
+th {
+  background-color:rgba(3, 3, 1, 0.2);
+  text-align: center;
+  /*font-size: 25px;*/
+}
+
+.navbar-custom {
+    background-color:rgba(3, 3, 1, 0.5);
+    color:rgba(3, 3, 1, 0.2);
+    border-radius:0;
+}
+
+.navbar-nav > .nav-link:hover   {
+color: rgba(3, 3, 1, 0.2);;
+}
+
+.navbar-nav > .active > a   {
+    color: white;
+    background-color:transparent;
+}
+
+
+.navbar-nav > .active > a:hover
+{
+    color: white;
+    background-color:rgba(3, 3, 1, 0.6);
+}
+
+.navbar-nav > .active > a:focus
+{
+    color: white;
+    background-color:rgba(3, 3, 1, 0.2);;
+}
+
+.navbar-nav > li > a:hover{
+    background-color: green;
+}
+
+
+body .modal{
+  height: 100%;
+  width: 100%;
+  max-height: 800px;
+  background-color: -webkit-linear-gradient(top, #FFE4E1, #f8f8ff);
+  color: red;
+}
+
+
+
+.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 20px;
+  background-color:rgba(3, 3, 1, 0.7);
+  border: 1px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.button_small {
+  display: inline-block;
+  border-radius: 20px;
+  background-color:rgba(3, 3, 1, 0.7);
+  border: 1px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.move_left{
+	float: left;
+    color: white;
+}
+
+.move_right{
+	float: right;
+    text-color: white;
+}
+
+.text_box{
+  width: 100%;
+  height: 50px;
+}
+
+
+/*a:link {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:visited {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:hover {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}
+a:active {
+  color: rgba(3, 3, 1, 0.2);
+  background-color: rgba(3, 3, 1, 0.2);}*/
+
+
+#settings_hover a:hover {
+  background-color: rgba(3, 3, 1, 0.2);
+}
+
+#button_hover a:hover {
+  background-color: rgba(3, 3, 1, 0);
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/Calendar.png);
+}
+
+.pretty th .desc {
+  background-image: url(/images/Settings.png);
+}
+
+
+
+.modal-color-red .modal-backdrop {
+  background-color: red;
+}
+.modal-color-green .modal-backdrop {
+  background-color: green;
+}
+.modal-color-blue .modal-backdrop {
+  background-color: blue;
+}

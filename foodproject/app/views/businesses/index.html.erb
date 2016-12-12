@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<center><h1>Businesses</h1></center>
+    <% @businesses.each do |business| %>
+<%if current_user.id == business.user_id %>
+    <table class = "table">
+  <thead>
+        <tr>
+          <th colspan="2"> <center><strong> <%= business.name %></strong> </center> </th>
+        </tr>
+  </thead>
+
+  <tbody>
+       <tr>
+              <td>  <strong>Address:</strong> <%= business.addLine1 %> 
+                    <%= business.addLine2 %> </td>
+               <td> <strong>Email1:</strong> <%= business.email1 %> </td>
+          </tr>
+          
+          <tr>
+            <td>  <strong>City:</strong> <%= business.addCity %>
+                  <strong>State:</strong> <%= business.addState %>
+                  <strong>Zip Code:</strong> <%= business.addZip %></td>
+             <td>  <strong>Email2:</strong> <%= business.email2 %> </td>
+          </tr>
+          <tr>
+            <td>  <strong>Phone:</strong> <%= business.phone %></td>
+            <td>  <strong>Website:</strong> <%= business.website %> </td>
+          </tr>
+
+      </tr>
+  </tbody>
+</table>
+
+    <%if current_user.id != business.user_id %>
+    <%= link_to 'New Business', new_business_path %>
+    <% end %>
+
+    <td><%= link_to 'Show', business %></td>
+        <td><%= link_to 'Edit', edit_business_path(business) %></td>
+        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+    <% end %>
+    <% end %>
+
+    <% if @businesses.all.empty? %>
+    <%= link_to 'New Business', new_business_path %>
+    <% end %>
+<br>
+
+

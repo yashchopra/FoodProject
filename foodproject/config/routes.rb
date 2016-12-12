@@ -1,3 +1,19 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	
+  resources :businesses do
+  	resources :foods
+  end
+  # resources :foods
+  devise_for :users
+
+  # @try = current_user.id
+  root 'businesses#home'
+  
+  get 'ajax/:action', to: 'ajax#:action', :defaults => { :format => 'json' }
+
+devise_scope :user do
+   get "signup", to: "devise/registrations#new"
+   get "sign_in", to: "devise/sessions#new"
+   get "logout", to: "devise/sessions#destroy"
+end
 end
