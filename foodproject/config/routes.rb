@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   # @try = current_user.id
   root 'businesses#home'
   
+  get 'ajax/:action', to: 'ajax#:action', :defaults => { :format => 'json' }
+
 devise_scope :user do
    get "signup", to: "devise/registrations#new"
    get "sign_in", to: "devise/sessions#new"

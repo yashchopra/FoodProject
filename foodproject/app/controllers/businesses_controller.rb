@@ -1,4 +1,5 @@
 class BusinessesController < ApplicationController
+  helper_method :sort_column, :sort_direction
   before_action :set_business, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -9,11 +10,10 @@ class BusinessesController < ApplicationController
     @businesses = Business.all
     @businesses.each do |business|
       if business.user_id == current_user.id
-        redirect_to business_path(business)
-      else
-        redirect_to new_business_path
+        redirect_to business_path(business) and return
       end
     end
+      redirect_to new_business_path and return
   end
 
   def index
@@ -23,7 +23,10 @@ class BusinessesController < ApplicationController
   # GET /businesses/1
   # GET /businesses/1.json
   def show
-
+    @businesses = Business.all
+    # Railscast 228
+    # @foods = Food.order(params[:sort])
+    @foods = Food.order(sort_column + " " + sort_direction)
   end
 
   # GET /businesses/new
@@ -78,6 +81,16 @@ class BusinessesController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Food.column_names.include?(params[:sort]) ? params[:sort] : "fooditem"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_business
       @business = Business.find(params[:id])

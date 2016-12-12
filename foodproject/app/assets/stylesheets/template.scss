@@ -36,7 +36,7 @@ th {
 }
 
 .navbar-nav > .nav-link:hover   {
-color: red;
+color: rgba(3, 3, 1, 0.2);;
 }
 
 .navbar-nav > .active > a   {
@@ -53,8 +53,8 @@ color: red;
 
 .navbar-nav > .active > a:focus
 {
-    color: yellow;
-    background-color:blue;
+    color: white;
+    background-color:rgba(3, 3, 1, 0.2);;
 }
 
 .navbar-nav > li > a:hover{
@@ -65,6 +65,8 @@ color: red;
 body .modal{
   height: 100%;
   width: 100%;
+  max-height: 800px;
+  background-color: -webkit-linear-gradient(top, #FFE4E1, #f8f8ff);
   color: red;
 }
 
@@ -118,6 +120,11 @@ body .modal{
     text-color: white;
 }
 
+.text_box{
+  width: 100%;
+  height: 50px;
+}
+
 
 /*a:link {
   color: rgba(3, 3, 1, 0.2);
@@ -133,10 +140,36 @@ a:active {
   background-color: rgba(3, 3, 1, 0.2);}*/
 
 
-#yash a:hover {
+#settings_hover a:hover {
   background-color: rgba(3, 3, 1, 0.2);
 }
 
-/*a:hover + div {
-    display: block;
-}​*/
+#button_hover a:hover {
+  background-color: rgba(3, 3, 1, 0);
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(/images/Calendar.png);
+}
+
+.pretty th .desc {
+  background-image: url(/images/Settings.png);
+}
+
+
+
+.modal-color-red .modal-backdrop {
+  background-color: red;
+}
+.modal-color-green .modal-backdrop {
+  background-color: green;
+}
+.modal-color-blue .modal-backdrop {
+  background-color: blue;
+}

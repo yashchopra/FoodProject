@@ -17,26 +17,28 @@
   <tbody>
 
   <tr>
-        <td>  <%= f.label :fooditem %> <%= f.text_field :fooditem %> </td>
-         <td> <%= f.label :foodtype %> <%= f.text_field :foodtype %> </td>
+        <td>  <%= f.label "Food Item" %> <%= f.text_field :fooditem %> </td>
+         <td> <%= f.label "Type of Food" %> <%= f.text_field :foodtype %> </td>
     </tr>
     
     <tr>
     <tr>
-        <td colspan="2">  <%= f.label :expiration %> <%= f.text_field :expiration, :id => "datepicker" %> </td>
+        <td>  <%= f.label "Food Expiration Date" %> <%= f.text_field :expiration, :id => "datepicker" %> </td>
 
         <script>
             $('#datepicker').datepicker({format: 'yyyy-mm-dd',
               startDate: "today",
               clearBtn: true,
               autoclose: true,
-              todayHighlight: true
+              todayHighlight: true,
               });
         </script>
+
+        <td>  <%= f.label "Food Quantity" %> <%= f.text_field :quantity %> </td>
     </tr>
     
     <tr>
-      <td>  <%= f.label :pickupstart %> <%= f.datetime_select :pickupstart %> </td>
+      <td>  <%= f.label "Pick-Up Start Date/Time" %> <%= f.datetime_select :pickupstart %> </td>
      
 
         <div class="form-group" id="post_date_time">
@@ -48,18 +50,17 @@
                   </span>
               </div>
             </div>
+            
             <script type="text/javascript">
               $(function () {
                 $('#datetimepicker').datetimepicker();
               });
             </script>
 
-
-
-       <td> <%= f.label :pickupend %> <%= f.datetime_select :pickupend %> </td>
+       <td> <%= f.label "Pick-Up End Date/Time" %> <%= f.datetime_select :pickupend %> </td>
     </tr>
     <tr>
-      <td colspan="2">  <%= f.label :specialnote %> <%= f.text_area :specialnote %> </td>
+      <td colspan="2">  <%= f.label "Note" %> <%= f.text_area :specialnote, :class => "text_box"%> </td>
     </tr>
   </tbody>
 </table>

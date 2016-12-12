@@ -11,26 +11,43 @@
     </div>
   <% end %>
 
-
 <table class = "table">
   <thead>
   <tr>
     
     <center> 
-    <th colspan="2"> 
-      <%= f.label 'Business Name' %>
-      <%= f.text_field :name , :style=> "color:black"%> 
-      </th>
+    <% if business.orgType == nil %>
+        <th colspan="4" style="text-align: center;"> 
+            <%= f.label 'I am a' %> 
+            <%= f.select :orgType, [ 'Business' , 'Food Distribution Center'],{prompt: "Select..."}, :class => 'business_type' %>
+          </th>
+      <% else %>
+          <th colspan="4" style="text-align: center;" > 
+            <%= f.label 'I am a' %> 
+            <%=  business.orgType %> 
+          </th>
+      <%= f.select :orgType, [ 'Business' , 'Food Distribution Center', '576576'],{prompt: "Select..."}, :class => 'business_type', style: "visibility:hidden"%>
+    <% end %>
+
     </center> 
     
 
     </tr>
   </thead>
-  <tbody>
+  <tbody class = "table_body">
 
   <tr>
-        <td>  <%= f.label 'I am a' %> <%= f.select :orgType, ['Select...', 'Business' , 'Food Distribution Center']  %> </td>
-         <td> <%= f.label 'Type of Business' %> <%= f.text_field :business_type %> </td>
+          <td>
+            <%= f.label 'Business Name', :class=>'business_display' %>
+            <%= f.label 'Chrity Name', :class=>'charity_display'%>
+            <%= f.text_field :name , :style=> "color:black"%> 
+        </td>
+         <td> 
+            <%= f.label 'Type of Business', :class=>'business_display' %>
+            <%= f.label 'Type of Charity', :class=>'charity_display' %>
+            <%= f.text_field :business_type %>
+         </td>
+
     </tr>
     
     <tr>

@@ -3,9 +3,9 @@
 <table class = "table">
   <thead>
   <tr>
-    <th colspan="3"> <center> <%= @business.name %></center> </th>
-    <th id = "yash"> <%= link_to image_tag("Settings.png", height: 22, width: 22), edit_business_path(@business), :title=> "AASXASAD"%> </th>
-
+    <th colspan="4"> <center> <%= @business.name %></center> </th>
+    <th> <%= @business.orgType %> </th>
+    <th id = "settings_hover"> <%= link_to image_tag("Settings.png", height: 22, width: 22), edit_business_path(@business), :title=> "Change Business Information"%> </th>
     </tr>
   </thead>
   <tbody>
@@ -19,13 +19,7 @@
           <td>  <strong>Phone:</strong> <%= @business.phone %></td>
          
     </tr>
-    
-    <tr>
-<!--       <td>  <strong>City:</strong> <%= @business.addCity %>
-            <strong>State:</strong> <%= @business.addState %>
-            <strong>Zip Code:</strong> <%= @business.addZip %></td> -->
-       
-    </tr>
+
     <tr>
       <td>  <strong>Website:</strong> <%= @business.website %> </td>
       <td> <strong>Email1:</strong> <%= @business.email1 %> </td>
@@ -35,23 +29,104 @@
 </table>
 
 
-<center><h1>Food History</h1></center>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Business info $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+<% if @business.orgType == "Business" %>
+      <center><h1>Food History</h1></center>
+
+      <table class = "table">
+        <thead>
+          <tr>
+            <th>Fooditem</th>
+            <th>Foodtype</th>
+            <th>Expiration</th>
+            <th>Pickupstart</th>
+            <th>Pickupend</th>
+            <th>Specialnote</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @business.foods.each do |food| %>
+            <tr>
+              <td><%= food.fooditem %></td>
+              <td><%= food.foodtype %></td>
+              <td><%= food.expiration %></td>
+              <td><%= food.pickupstart %></td>
+              <td><%= food.pickupend %></td>
+              <td><%= food.specialnote %></td>
+              
+              <td id = "button_hover"> <%= link_to '<button class="button">Show</button>'.html_safe, business_food_path(@business,food) %> </td>
+              <td id = "button_hover"> <%= link_to '<button class="button">Edit</button>'.html_safe,  edit_business_food_path(@business,food)  %> </td>
+              <td id = "button_hover"> <%= link_to '<button class="button">Destroy</button>'.html_safe, business_food_path(@business,food), method: :delete, data: { confirm: 'Are you sure?', :class=> "alert"}%> </td>
+            
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Modal New Food start $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+
+      <%= link_to 'New Food', new_business_food_path(@business) , :class=> "button" , data: { toggle: 'modal', target: '#myModal', :id=> "settings_hover"} %>
+
+
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">New Food</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Modal New Food end $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+<% end %>
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Business info end $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+<!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ Charity - Business search $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+
+<% if @business.orgType == "Food Distribution Center" %>
+<h1>Foods</h1>
 
 <table class = "table">
   <thead>
     <tr>
-      <th>Fooditem</th>
-      <th>Foodtype</th>
-      <th>Expiration</th>
-      <th>Pickupstart</th>
-      <th>Pickupend</th>
-      <th>Specialnote</th>
+<!--       <th><%= sortable "fooditem", "Food Name" %></th>
+      <th><%= sortable "foodtype", "Food Type"  %></th>
+      <th><%= sortable "expiration"  %></th>
+      <th><%= sortable "pickupstart"  %></th>
+      <th><%= sortable "pickupend"  %></th>
+      <th><%= sortable "specialnote"  %></th> -->
+
+
+      <th><%= link_to "fooditem"     ,:sort=>"fooditem" %></th>
+      <th><%= link_to "foodtype"     ,:sort=>"foodtype"  %></th>
+      <th><%= link_to "expiration"   ,:sort=>"expiration"  %></th>
+      <th><%= link_to "pickupstart"  ,:sort=>"pickupstart"  %></th>
+      <th><%= link_to "pickupend"    ,:sort=>"pickupend"  %></th>
+      <th><%= link_to "specialnote"  ,:sort=>"specialnote"  %></th> 
+
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @business.foods.each do |food| %>
+  <% bus = Business.all %>
+  <% bus.each do |all_business| %>
+    <% all_business.foods.each do |food| %>
+    <% if food.expiration != nil and food.expiration >= Date.today %>
       <tr>
         <td><%= food.fooditem %></td>
         <td><%= food.foodtype %></td>
@@ -60,40 +135,30 @@
         <td><%= food.pickupend %></td>
         <td><%= food.specialnote %></td>
         <td><%= link_to 'Show', business_food_path(@business,food) %></td>
-        <td><%= link_to 'Edit', edit_business_food_path(@business,food) %></td>
-        <td><%= link_to 'Destroy', business_food_path(@business,food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+     <% end %>
     <% end %>
+  <% end %>
+
   </tbody>
 </table>
+<% end %>
 
-<%= link_to 'Trial_________', new_business_food_path(@business) , :class=> "button_small" , data: { toggle: 'modal', target: '#myModal'} %>
 
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
- 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">New Food</h4>
-      </div>
-      <div class="modal-body">
 
-      ...
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<%= link_to 'New Food', new_business_food_path(@business) , :class=> "button"  %>
+
+
+
+
+
+
+
+
+
+
+
 

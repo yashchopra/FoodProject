@@ -4,10 +4,8 @@
 
 <center><h1>Businesses</h1></center>
     <% @businesses.each do |business| %>
-    <%if current_user.id == business.user_id %>
-      <tr>
-
-<table class = "table">
+<%if current_user.id == business.user_id %>
+    <table class = "table">
   <thead>
         <tr>
           <th colspan="2"> <center><strong> <%= business.name %></strong> </center> </th>
@@ -31,11 +29,10 @@
             <td>  <strong>Phone:</strong> <%= business.phone %></td>
             <td>  <strong>Website:</strong> <%= business.website %> </td>
           </tr>
-        
+
       </tr>
   </tbody>
 </table>
-    <% end %>
 
     <%if current_user.id != business.user_id %>
     <%= link_to 'New Business', new_business_path %>
@@ -46,8 +43,7 @@
         <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
     <% end %>
-
-
+    <% end %>
 
     <% if @businesses.all.empty? %>
     <%= link_to 'New Business', new_business_path %>

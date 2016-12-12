@@ -2,6 +2,7 @@ class FoodsController < ApplicationController
   before_action :set_food, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
+
   # GET /foods
   # GET /foods.json
   def index
@@ -22,6 +23,11 @@ class FoodsController < ApplicationController
     @food = Food.new
     @business = Business.find params[:business_id]
     @food.business = @business
+
+    respond_to do |format|
+      format.js
+    end
+
   end
 
   # GET /foods/1/edit
@@ -36,6 +42,8 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     @business = Business.find params[:business_id]
     @food.business = @business
+    @food.user_id = current_user.id
+    
     respond_to do |format|
       if @food.save
         format.html { redirect_to [@business], notice: 'Food was successfully created.' }
@@ -69,12 +77,23 @@ class FoodsController < ApplicationController
     @business = Business.find params[:business_id]
     @food.destroy
     respond_to do |format|
-      format.html { redirect_to business_path(@business), notice: 'Food was successfully destroyed.' }
+      format.html { redirect_to business_path(@business), notice: 'Food was successfully deleted.' }
       format.json { head :no_content }
     end
   end
 
   private
+
+    # def sort_column
+    #   Food.column_names.include?(params[:sort]) ? params[:sort] : "fooditem"
+    # end
+    
+    # def sort_direction
+    #   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    # end
+
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_food
       @business = Business.find params[:business_id]
